@@ -1,0 +1,30 @@
+Łódź Fabryczna, N/A, 09:28
+Łódź Widzew, 09:34, 09:35
+Koluszki, 09:46, 09:47
+Skierniewice, 10:05, 10:07
+Żyrardów, 10:19, 10:21
+Warszawa Zachodnia, 10:40, 10:41
+Warszawa Centralna, 10:46, 11:00
+Warszawa Wschodnia, 11:06, 11:08
+Legionowo, 11:21, 11:22
+Nowy Dwór Mazowiecki, 11:30, 11:31
+Ciechanów, 11:59, 12:02
+Mława Miasto, 12:17, 12:18
+Działdowo, 12:28, 12:29
+Iława Główna, 12:59, 13:08
+Prabuty, 13:27, 13:28
+Malbork, 13:46, 13:48
+Tczew, 13:59, 14:01
+Gdańsk Główny, 14:17, 14:20
+Gdańsk Wrzeszcz, 14:24, 14:25
+Gdańsk Oliwa, 14:28, 14:29
+Sopot, 14:33, 14:35
+Gdynia Główna, 14:44, 14:49
+Rumia, 14:59, 15:00
+Wejherowo, 15:09, 15:10
+Lębork, 15:31, 15:34
+Słupsk, 16:45, 16:46
+Sławno, 17:12, 17:13
+Koszalin, 17:38, 17:40
+Ustronie Morskie, 18:05, 18:06
+Kołobrzeg, 18:18, N/A

@@ -33,7 +33,7 @@ project/boot/
 .vscode/
 
 # Metals specific
-.metals
+.metals/
 .bsp/
 .bloop/
 metals.sbt
