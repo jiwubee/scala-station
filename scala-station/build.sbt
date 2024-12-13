@@ -29,3 +29,4 @@ libraryDependencies ++= {
     "ch.qos.logback" % "logback-classic" % "1.5.12" // for Java ver. >= 11
   )
 }
+fork := true

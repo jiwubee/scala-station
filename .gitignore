@@ -40,3 +40,4 @@ metals.sbt
 
 # IntelliJ IDEA
 .idea*
+file.txt

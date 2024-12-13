@@ -4,20 +4,27 @@ import java.nio.file.{Paths, Files}
 import java.nio.charset.StandardCharsets
 import org.apache.pekko
 import pekko.actor.{ActorSystem, Actor, ActorLogging, ActorRef, Props}
+import scala.io.StdIn.readLine
+import java.util.HashMap
 
-case class Schedule(list: List[Array[Station]])
-case class Tour(stations: Array[Station])
+case class Schedule(list: Map[String, List[Station]])
+case class Tour(stations: List[Station])
 case object Endstations
 
 class Distributor(drivers: List[ActorRef]) extends Actor with ActorLogging {
   def receive: Receive = {
     case Schedule(list) =>
-      val stations = list.head
-      drivers.head ! Tour(stations)
+      println("Choose Tour:")
+      val input = "gryf"
+      val tour = list.find(_._1 == input) 
+      tour match
+        case Some((key, stations)) => 
+          drivers.head ! Tour(stations)
+        case None => log.info("Train not found")
   }
 }
 
-class TrainDriver extends Actor with ActorLogging {
+class TrainDriver(system: ActorSystem) extends Actor with ActorLogging {
   def receive: Receive = {
     case Tour(stations) => 
       context.become(work)
@@ -28,16 +35,16 @@ class TrainDriver extends Actor with ActorLogging {
       val stations_data = stations.map(_.toString).mkString("\n")
       log.info(stations_data)
       Files.write(Paths.get("file.txt"), stations_data.getBytes(StandardCharsets.UTF_8))
+      system.terminate()
   }
 }
 
 @main
 def mainProg: Unit = {
-  import trainstation.pobrzeże as pobrzeże
-  val trasa = List(pobrzeże)
   val system = ActorSystem("TrainStation")
-  val kacper = system.actorOf(Props[TrainDriver](), "Kacper")
+  val kacper = system.actorOf(Props(new TrainDriver(system)), "Kacper")
   val maszyniści = List(kacper)
   val distributor = system.actorOf(Props(new Distributor(maszyniści)), "distributor")
+  import trainstation.schedules as trasa
   distributor ! Schedule(trasa)
 }
