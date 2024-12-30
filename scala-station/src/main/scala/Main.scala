@@ -32,9 +32,15 @@ class TrainDriver(system: ActorSystem) extends Actor with ActorLogging {
   }
   def work: Receive = {
     case Tour(stations) => 
-      val stations_data = stations.map(_.toString).mkString("\n")
-      log.info(stations_data)
-      Files.write(Paths.get("file.txt"), stations_data.getBytes(StandardCharsets.UTF_8))
+      val stations_data = stations.map(_.toString)
+      for (station <- stations_data) {
+        val data = station.split(",").toList
+        data(2).trim match {
+          case n if n == "N/A" => log.info(s"Pociąg dojechał na stację ${data(0)} o godzinie ${data(1)}")
+          case _ => log.info(s"Pociąg odjechał ze stacji ${data(0)} o godzinie ${data(2)}")
+        }
+
+      }
       system.terminate()
   }
 }
