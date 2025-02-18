@@ -1,6 +1,6 @@
 package trainstation
 
-def calculateTime(dep: String, delay: Int): Any = {
+def calculateTime(dep: String, delay: Int): String = {
   val splited = dep.split(":").toList
   val time = List(splited(0).toInt, splited(1).toInt)
   time match {
